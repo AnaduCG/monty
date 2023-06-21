@@ -27,6 +27,6 @@ void handle_add(stack_t **stack, unsigned int line_number,
  *
  */
 void handle_nop(stack_t **stack __attribute__((unused)),
-		unsigned int line_number __attribute__((unused)),
-		void *arg __attribute__((unused)))
+		__attribute__((unused)) unsigned int line_number,
+		__attribute__((unused)) void *arg)
 {}
