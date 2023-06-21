@@ -11,9 +11,10 @@
  */
 void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 {
-	char *n = (char *)arg;
+	char *n;
 	stack_t *ret_val;
 
+	n = _is_int(arg);
 	if (!n)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
