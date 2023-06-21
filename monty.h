@@ -66,7 +66,7 @@ void _error(char *str);
 char *_is_int(char *str);
 
 /* Handling file contents */
-void _to_arr(char *str, unsigned int line_number);
+void _to_arr(char *, unsigned int, stack_t **);
 void run_instruction(stack_t **, unsigned int, char **);
 
 #endif /* MONTY_H */

@@ -15,7 +15,8 @@ void handle_add(stack_t **stack, unsigned int line_number,
 	if (n == 0)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
+		free_stack(stack);
+		exit(EXIT_FAILURE);
 	}
 }
 
