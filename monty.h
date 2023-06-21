@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+
 /* Structures */
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

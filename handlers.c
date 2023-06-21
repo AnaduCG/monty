@@ -17,13 +17,13 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 	if (!n)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		return; /* FIXME: free stack before exiting */
+		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
 	}
 	ret_val = push(stack, atoi(n));
 	if (!ret_val)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		return; /* FIXME: free stack before exiting */
+		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
 	}
 }
 
@@ -42,7 +42,7 @@ void handle_pall(stack_t **stack, unsigned int line_number,
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n",
 			line_number);
-		return; /* FIXME: free stack before exiting */
+		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
 	}
 }
 
@@ -60,6 +60,6 @@ void handle_pint(stack_t **stack, unsigned int line_number,
 	if (n == 0)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		return; /* FIXME: free stack before exiting */
+		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
 	}
 }
