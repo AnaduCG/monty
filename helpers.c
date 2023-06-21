@@ -14,7 +14,7 @@ stack_t *push(stack_t **stack, int n)
 	stack_t *new = malloc(sizeof(stack_t));
 
 	if (!new)
-		return (NULL);
+		_error("Error: malloc failed");
 	new->n = n;
 	new->prev = NULL;
 	new->next = *stack;
