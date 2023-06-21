@@ -13,6 +13,9 @@ void run_instruction(stack_t **stack, unsigned int line_number, char **argv)
 	    {"push", handle_push},
 	    {"pall", handle_pall},
 	    {"pint", handle_pint},
+	    {"pop", handle_pop},
+	    {"swap", handle_swap},
+	    {"add", handle_add},
 	    {NULL, NULL}};
 	int i = 0, exists = 0;
 

@@ -63,3 +63,37 @@ void handle_pint(stack_t **stack, unsigned int line_number,
 		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
 	}
 }
+/**
+ *handle_pop - function that handles error for the pop funtion
+ *@stack: pointer to pointer to head node of the stack list
+ *@line_number: file index
+ *@arg: argument of instructio
+ */
+void handle_pop(stack_t **stack, unsigned int line_number,
+		void *arg __attribute__((unused)))
+{
+	int n = pop(stack);
+
+	if (n == 0)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
+	}
+}
+/**
+ *handle_swap - functio that handles for the swap function
+ *@stack: pointer to pointer to head node of the stack list
+ *@line_number: file index
+ *@arg: argument of instructio
+ */
+void handle_swap(stack_t **stack, unsigned int line_number,
+		void *arg __attribute__((unused)))
+{
+	int n = swap(stack);
+
+	if (n == 0)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
+	}
+}
