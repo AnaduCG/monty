@@ -63,6 +63,7 @@ stack_t *push(stack_t **, int);
 
 /* error handling */
 void _error(char *str);
+char *_is_int(char *str);
 
 /* Handling file contents */
 void _to_arr(char *str, unsigned int line_number);

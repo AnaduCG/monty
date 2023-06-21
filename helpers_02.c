@@ -13,3 +13,24 @@ int add(stack_t **stack)
 	pop(stack);
 	return (1);
 }
+
+char *_is_int(char *str)
+{
+	int i, n = 0, len = 0;
+	char j;
+
+	if (!str)
+		return (NULL);
+	len = strlen(str);
+	for (j = '0'; j <= '9'; j++)
+	{
+		for (i = 0; str[i]; i++)
+		{
+			if (str[i] == j)
+				n++;
+		}
+	}
+	if (n != len)
+		return (NULL);
+	return (str);
+}
