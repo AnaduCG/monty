@@ -60,6 +60,7 @@ int pop(stack_t **);
 size_t pall(stack_t *);
 void free_stack(stack_t **);
 stack_t *push(stack_t **, int);
+char *_is_int(char *);
 
 /* error handling */
 void _error(char *str);
