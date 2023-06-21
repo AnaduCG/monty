@@ -8,7 +8,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int fd, line = 1, i = 0;
+	int fd, i = 0;
+	unsigned int line = 1;
 	char buf[1], str[1024];
 	ssize_t r;
 	/* Checking for argument count */
@@ -34,18 +35,12 @@ int main(int argc, char *argv[])
 		if (buf[0] == '\n' || r == 0)
 		{
 			str[i] = '\0';
-			printf("line: %d\n", line);
+			_to_arr(str, line);
 			line++;
-			_to_arr(str);
 			i = 0;
 		}
 		str[i] = buf[0];
 		r = read(fd, buf, 1);
-		/* if (r == 0)
-		{
-			line++;
-			break;
-		} */
 		i++;
 	}
 	close(fd);

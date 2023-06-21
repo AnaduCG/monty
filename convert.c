@@ -4,11 +4,12 @@
  *
  * @str: string to be converted
  */
-void _to_arr(char *str)
+void _to_arr(char *str, unsigned int line_number)
 {
 	char **vals = malloc(sizeof(char *) * strlen(str));
 	char *token = strtok(str, " \t\n");
 	int i = 0;
+	static stack_t *stack;
 
 	if (vals == NULL)
 		_error("Error: malloc failed");
@@ -19,7 +20,6 @@ void _to_arr(char *str)
 		token = strtok(NULL, " \t\n");
 		i++;
 	}
-	/* for (i = 0; vals[i]; i++) */
-	/*         printf("%s\n", vals[i]); */
+	run_instruction(&stack, line_number, vals);
 	free(vals);
 }
