@@ -2,19 +2,25 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-void _use(char *str)
+void _use(char *str, unsigned int line_number)
 {
 	char **vals = malloc(sizeof(char *) * strlen(str));
 	char *token = strtok(str, " \t\n");
 	int i = 0;
+	static stack_t *stack = NULL;
+
 	while (token)
 	{
 		vals[i] = token;
 		token = strtok(NULL, " \t\n");
 		i++;
 	}
-	for (i = 0; vals[i]; i++)
-		printf("%s\n", vals[i]);
+	/*
+	 *for (i = 0; vals[i]; i++)
+	 *	printf("%s\n", vals[i]);
+	 */
+	/* run instructions */
+	run_instruction(&stack, line_number, vals);
 }
 /**
  *
@@ -35,7 +41,8 @@ void _error(char *str)
  */
 int main(int argc, char *argv[])
 {
-	int fd, line = 1, i = 0;
+	int fd, i = 0;
+	unsigned int line = 1;
 	char buf[1], str[1024];
 	ssize_t r;
 
@@ -55,9 +62,9 @@ int main(int argc, char *argv[])
 	{
 		if (buf[0] == '\n')
 		{
-			line++;
 			str[i++] = '\0';
-			_use(str);
+			_use(str, line);
+			line++;
 			i = 0;
 		}
 		str[i] = buf[0];
