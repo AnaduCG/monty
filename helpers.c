@@ -57,3 +57,47 @@ int pint(stack_t *stack)
 	printf("%d\n", stack->n);
 	return (1);
 }
+/**
+ *pop - function that perfoms LIFO on the stack list
+ *@stack: pointer to the head of the stack list
+ *Return: 1 if successful otherwise 0
+ */
+int pop(stack_t **stack)
+{
+	stack_t *temp;
+
+	if (*stack == NULL)
+		return (0);
+
+	if ((*stack)->next == NULL)
+	{
+		free(*stack);
+		*stack = NULL;
+		return (1);
+	}
+	temp = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	free(temp);
+
+	return (1);
+}
+/**
+ *swap - function that swaps the first and second node in the list
+ *@stack: pointer to the head of the stack list
+ *Return: 1 if successful otherwise 0Return: 1 if successful otherwise 0
+ */
+int swap(stack_t **stack)
+{
+	stack_t *top, *second;
+	int temp;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return (0);
+	top = *stack;
+	second = (*stack)->next;
+	temp = top->n;
+	top->n = second->n;
+	second->n = temp;
+	return (1);
+}

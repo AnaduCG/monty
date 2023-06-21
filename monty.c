@@ -13,8 +13,11 @@ void run_instruction(stack_t **stack, unsigned int line_number, char **argv)
 	    {"push", handle_push},
 	    {"pall", handle_pall},
 	    {"pint", handle_pint},
+	    {"pop", handle_pop},
+	    {"swap", handle_swap},
+	    {"add", handle_add},
 	    {NULL, NULL}};
-	int i = 0;
+	int i = 0, exists = 0;
 
 	while (opcodes[i].opcode != NULL)
 	{
@@ -25,9 +28,15 @@ void run_instruction(stack_t **stack, unsigned int line_number, char **argv)
 		 */
 		if (strcmp(opcodes[i].opcode, argv[0]) == 0)
 		{ /* run the instruction */
+			exists++;
 			opcodes[i].f(stack, line_number, argv[1]);
 		}
 		i++;
+	}
+	if (exists == 0)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, argv[0]);
+		exit(EXIT_FAILURE);
 	}
 	/* FIXME: handle command not found */
 }

@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+
 /* Structures */
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -46,9 +47,16 @@ typedef struct instruction_s
 void handle_push(stack_t **, unsigned int, void *);
 void handle_pall(stack_t **, unsigned int, void *);
 void handle_pint(stack_t **, unsigned int, void *);
+void handle_swap(stack_t **, unsigned int, void *);
+void handle_pop(stack_t **, unsigned int, void *);
+void handle_add(stack_t **, unsigned int, void *);
+void handle_nop(stack_t **, unsigned int, void *);
 
 /* Handling stack list */
+int swap(stack_t **);
 int pint(stack_t *);
+int add(stack_t **);
+int pop(stack_t **);
 size_t pall(stack_t *);
 void free_stack(stack_t **);
 stack_t *push(stack_t **, int);
