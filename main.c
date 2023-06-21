@@ -1,81 +1,52 @@
 #include "monty.h"
-#include <stdlib.h>
-#include <fcntl.h>
 
-void _use(char *str)
-{
-	char **vals = malloc(sizeof(char *) * strlen(str));
-	char *token = strtok(str, " \t\n");
-	int i = 0;
-	while (token)
-	{
-		vals[i] = token;
-		token = strtok(NULL, " \t\n");
-		i++;
-	}
-	for (i = 0; vals[i]; i++)
-		printf("%s\n", vals[i]);
-}
 /**
- *
- *
- *
- *
- */
-void _error(char *str)
-{
-	write(2, str, strlen(str));
-	exit(EXIT_FAILURE);
-}
-/**
- *
- *
- *
- *
+ *main - entry point in all C programming
+ *@argc: gets the number of arguments passed
+ *@argv: arguments passed
+ *Return: returns 0 on success
  */
 int main(int argc, char *argv[])
 {
 	int fd, line = 1, i = 0;
 	char buf[1], str[1024];
 	ssize_t r;
-
+	/* Checking for argument count */
 	if (argc != 2)
-	{
-		_error("Argument Error\n");
-		exit(0);
-	}
+		_error("USAGE: monty file\n");
+	/* opening file */
 	fd = open(argv[1], O_RDONLY);
-	if (fd == !-1)
+	if (fd < 0)
 	{
-		_error("Error Opening file\n");
-		exit(0);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
 	}
+	/* reading from file */
 	r = read(fd, buf, 1);
+	if (r < 0)
+	{
+		close(fd);
+		_error("Error reading file\n");
+	}
 	while (r > 0)
 	{
-		if (buf[0] == '\n')
+		/* checking for a new line in file */
+		if (buf[0] == '\n' || r == 0)
 		{
+			str[i] = '\0';
+			printf("line: %d\n", line);
 			line++;
-			str[i++] = '\0';
-			_use(str);
+			_to_arr(str);
 			i = 0;
 		}
 		str[i] = buf[0];
-
-		/* if (write(1, buf, 1) == -1)
-		{
-			_error("Error writing file\n");
-			close(fd);
-			exit(0);
-		} */
 		r = read(fd, buf, 1);
+		/* if (r == 0)
+		{
+			line++;
+			break;
+		} */
 		i++;
-	}
-	if (r == -1)
-	{
-		_error("Error reading file\n");
-		close(fd);
-		exit(0);
 	}
 	close(fd);
 	return (0);
