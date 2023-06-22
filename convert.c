@@ -13,7 +13,7 @@ void _to_arr(char *str, unsigned int line_number, stack_t **stack)
 	int i = 0;
 
 	if (vals == NULL)
-		_error("Error: malloc failed");
+		_error("Error: malloc failed\n");
 	if (!token)
 	{
 		free(vals);

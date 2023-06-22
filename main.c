@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	{
 		if (ferror(file)) /* Handling read error */
 		{
-			_error("Error reading file\n");
+			fprintf(stderr, "Error reading file\n");
 			fclose(file);
 			exit(EXIT_FAILURE);
 		}
