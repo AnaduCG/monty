@@ -8,6 +8,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <fcntl.h>
+
 /* Global variables */
 extern FILE *file;
 extern int toggle;
