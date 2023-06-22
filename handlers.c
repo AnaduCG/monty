@@ -40,7 +40,15 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 void handle_pall(stack_t **stack, unsigned int line_number,
 		void *arg __attribute__((unused)))
 {
-	pall(*stack);
+	int n = pall(*stack);
+
+	if (n == 0)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n",
+			line_number);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
