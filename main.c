@@ -1,5 +1,5 @@
 #include "monty.h"
-
+__attribute__((unused)) FILE * file = NULL;
 /**
  *main - entry point in all C programming
  *@argc: gets the number of arguments passed
@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
 	unsigned int line = 1;
 	char buffer[256];
-	FILE *file = NULL;
+	/* FILE *file = NULL; */
 	stack_t *stack = NULL;
 
 	if (argc != 2)
@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	/* Read lines from the file */

@@ -16,6 +16,7 @@ void handle_add(stack_t **stack, unsigned int line_number,
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		free_stack(stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -48,6 +49,7 @@ void handle_sub(stack_t **stack, unsigned int line_number,
 		fprintf(stderr, "L%d: can't sub, stack too short\n",
 				line_number);
 		free_stack(stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -72,6 +74,7 @@ void handle_div(stack_t **stack, unsigned int line_number,
 			fprintf(stderr, "L%d: division by zero\n",
 					line_number);
 		free_stack(stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 }

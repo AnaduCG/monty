@@ -71,7 +71,7 @@ char *_strdup(const char *str)
 
 /**
  * sub - subtracts the top element of the stack
- * 	from the second top element of the stack
+ *	from the second top element of the stack
  * @stack: pointer to pointer to stack
  *
  * Return: 1 if successful otherwise 0
@@ -86,8 +86,8 @@ int sub(stack_t **stack)
 }
 
 /**
- * div - divides the second top element of the stack
- * 	by the top element of the stack
+ * _div - divides the second top element of the stack
+ *		by the top element of the stack
  * @stack: pointer to pointer to stack
  *
  * Return: 1 if successful

@@ -8,7 +8,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <fcntl.h>
-
+extern FILE *file;
 
 /* Structures */
 /**
