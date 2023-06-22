@@ -11,6 +11,7 @@
  */
 void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 {
+	stack_t *ret_val;
 	char *n = _is_int(arg);
 
 	if (!n)
@@ -20,8 +21,12 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-
-	if (!push(stack, atoi(n)))
+	if (toggle == 0)
+		ret_val = push(stack, atoi(n));
+	else
+		ret_val = enqueue(stack, atoi(n));
+	free(n);
+	if (!ret_val)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(stack);
@@ -29,7 +34,6 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-	free(n);
 }
 
 /**

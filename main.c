@@ -1,5 +1,7 @@
 #include "monty.h"
+
 __attribute__((unused)) FILE * file = NULL;
+__attribute__((unused)) int toggle = 0;
 /**
  *main - entry point in all C programming
  *@argc: gets the number of arguments passed

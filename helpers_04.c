@@ -48,3 +48,35 @@ void rotr(stack_t **stack)
 	}
 	free(current);
 }
+
+/**
+ * enqueue - add element to the end of the stack
+ * @stack: pointer to stack
+ * @n: data to push to stack
+ *
+ * Return: pointer to new node if successful otherwise NULL
+ */
+stack_t *enqueue(stack_t **stack, int n)
+{
+	stack_t *current = *stack, *new;
+
+	new = malloc(sizeof(stack_t));
+	if (!new)
+		return (NULL);
+	new->n = n;
+	new->next = NULL;
+	if (*stack == NULL)
+	{
+		new->prev = NULL;
+		*stack = new;
+	} else
+	{
+		/* tranverse to the end of the stack */
+		while (current->next != NULL)
+			current = current->next;
+		/* add new node */
+		current->next = new;
+		new->prev = current;
+	}
+	return (new);
+}
