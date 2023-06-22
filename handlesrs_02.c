@@ -30,7 +30,8 @@ void handle_add(stack_t **stack, unsigned int line_number,
 void handle_nop(stack_t **stack __attribute__((unused)),
 		__attribute__((unused)) unsigned int line_number,
 		__attribute__((unused)) void *arg)
-{}
+{
+}
 
 /**
  * handle_sub - handle the opcode sub
@@ -46,7 +47,7 @@ void handle_sub(stack_t **stack, unsigned int line_number,
 	if (ret_val == 0)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n",
-				line_number);
+			line_number);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
@@ -58,19 +59,19 @@ void handle_sub(stack_t **stack, unsigned int line_number,
  * @line_number: file index
  * @arg: argument of instruction
  */
-void handle_div(stack_t **stack, unsigned int line_number,
-		void *arg __attribute__((unused)))
+void handle_div(stack_t **stack, unsigned int line_number, void *arg)
 {
 	int ret_val = _div(stack);
 
+	((void)arg);
 	if (ret_val != 1)
 	{
 		if (ret_val == 0)
 			fprintf(stderr, "L%d: can't div, stack too short\n",
-					line_number);
+				line_number);
 		else if (ret_val == -1)
 			fprintf(stderr, "L%d: division by zero\n",
-					line_number);
+				line_number);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
