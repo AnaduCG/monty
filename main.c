@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
 		if (ferror(file)) /* Handling read error */
+
 		{
 			fprintf(stderr, "Error reading file\n");
 			fclose(file);

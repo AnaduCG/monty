@@ -17,17 +17,21 @@ void run_instruction(stack_t **stack, unsigned int line_number, char **argv)
 	    {"swap", handle_swap},
 	    {"add", handle_add},
 	    {"nop", handle_nop},
+	    {"nop", handle_nop},
+	    {"sub", handle_sub},
+	    {"mul", handle_mul},
+	    {"div", handle_div},
+	    {"mod", handle_mod},
+	    {"pchar", handle_pchar},
+	    {"pstr", handle_pstr},
+	    {"rotl", handle_rotl},
+	    {"rotr", handle_rotr},
 	    {NULL, NULL}};
 	int i = 0;
 	char *arg = NULL;
 
 	while (opcodes[i].opcode != NULL)
 	{
-		/*
-		 *printf("opcode->%s\narg->%s\n", argv[0], argv[1]);
-		 *printf("opcode->%s\n", opcodes[i].opcode);
-		 *printf("---\n");
-		 */
 		if (strcmp(opcodes[i].opcode, argv[0]) == 0)
 		{
 			if (argv[1] != NULL)

@@ -64,7 +64,7 @@ void handle_pint(stack_t **stack, unsigned int line_number,
 }
 
 /**
- *handle_pop - function that handles error for the pop funtion
+ *handle_pop - function that handles error for the pop function
  *@stack: pointer to pointer to head node of the stack list
  *@line_number: file index
  *@arg: argument of instruction
