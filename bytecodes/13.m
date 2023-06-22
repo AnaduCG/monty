@@ -10,4 +10,4 @@ pop
 pall
 push 4
 nop
-push
+push fsnfskn

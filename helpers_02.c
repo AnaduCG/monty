@@ -31,6 +31,9 @@ char *_is_int(char *str)
 		}
 	}
 	if (n != len)
+	{
+		free(str);
 		return (NULL);
+	}
 	return (str);
 }
