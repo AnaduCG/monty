@@ -41,6 +41,10 @@ void rotr(stack_t **stack)
 	prev->next = NULL;
 	/* push last element to stack */
 	if (!push(stack, current->n))
-		return; /* FIXME: handle malloc error */
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
 	free(current);
 }
