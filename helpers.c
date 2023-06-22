@@ -11,18 +11,18 @@
  */
 stack_t *push(stack_t **stack, int n)
 {
-	stack_t *new = malloc(sizeof(stack_t));
+	stack_t *new_node = malloc(sizeof(stack_t));
 
-	if (!new)
+	if (!new_node)
 		_error("Error: malloc failed");
-	new->n = n;
-	new->prev = NULL;
-	new->next = *stack;
+	new_node->n = n;
+	new_node->prev = NULL;
+	new_node->next = *stack;
 	if (*stack != NULL)
-		(*stack)->prev = new;
+		(*stack)->prev = new_node;
 	/* update stack pointer */
-	*stack = new;
-	return (new);
+	*stack = new_node;
+	return (new_node);
 }
 
 /**
