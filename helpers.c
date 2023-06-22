@@ -85,7 +85,7 @@ int pop(stack_t **stack)
 /**
  *swap - function that swaps the first and second node in the list
  *@stack: pointer to the head of the stack list
- *Return: 1 if successful otherwise 0Return: 1 if successful otherwise 0
+ *Return: 1 if successful otherwise 0
  */
 int swap(stack_t **stack)
 {

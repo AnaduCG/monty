@@ -34,3 +34,25 @@ char *_is_int(char *str)
 		return (NULL);
 	return (str);
 }
+/**
+ *__strdup - function that create a string duplicate
+ *@str:  string to be duplicated
+ *Return: returns a pointer to the duplicate string and NULL on error
+ *
+ */
+char *_strdup(const char *str)
+{
+	size_t len = 0;
+	char *new_str = NULL;
+
+	if (str == NULL)
+		return (NULL);
+
+	len = strlen(str) + 1;
+	new_str = malloc(len);
+	
+	if (new_str != NULL)
+		memcpy(new_str, str, len);
+
+	return (new_str);
+}

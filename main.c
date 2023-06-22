@@ -11,8 +11,8 @@ int main(int argc, char *argv[])
 	unsigned int line = 1;
 	char buffer[256];
 	FILE *file;
+	stack_t *stack = NULL;
 
-	/* Checking for argument count */
 	if (argc != 2)
 		_error("USAGE: monty file\n");
 	/* opening file */
@@ -25,13 +25,13 @@ int main(int argc, char *argv[])
 	/* Read lines from the file */
 	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
-		if (ferror(file))/* Handling read error */
+		if (ferror(file)) /* Handling read error */
 		{
 			_error("Error reading file\n");
 			fclose(file);
 			exit(EXIT_FAILURE);
 		}
-		_to_arr(buffer, line);
+		_to_arr(buffer, line, &stack);
 		line++;
 	}
 

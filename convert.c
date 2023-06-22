@@ -4,13 +4,13 @@
  * _to_arr - function that converts a string to array
  * @line_number: argument ofr tracking line number in file
  * @str: string to be converted
+ * @stack: pointer to pointer to stack
  */
-void _to_arr(char *str, unsigned int line_number)
+void _to_arr(char *str, unsigned int line_number, stack_t **stack)
 {
 	char **vals = malloc(sizeof(char *) * (strlen(str) + 1));
 	char *token = strtok(str, " \t\n");
 	int i = 0;
-	static stack_t *stack;
 
 	if (vals == NULL)
 		_error("Error: malloc failed");
@@ -31,7 +31,5 @@ void _to_arr(char *str, unsigned int line_number)
 	}
 	vals[i] = NULL;
 
-	run_instruction(&stack, line_number, vals);
-
-	free(vals);
+	run_instruction(stack, line_number, vals);
 }
