@@ -60,6 +60,7 @@ void handle_pint(stack_t **stack, unsigned int line_number,
 		exit(EXIT_FAILURE);
 	}
 }
+
 /**
  *handle_pop - function that handles error for the pop funtion
  *@stack: pointer to pointer to head node of the stack list
@@ -78,6 +79,7 @@ void handle_pop(stack_t **stack, unsigned int line_number,
 		exit(EXIT_FAILURE);
 	}
 }
+
 /**
  *handle_swap - function that handles for the swap function
  *@stack: pointer to pointer to head node of the stack list
