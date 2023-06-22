@@ -51,20 +51,36 @@ void handle_swap(stack_t **, unsigned int, void *);
 void handle_pop(stack_t **, unsigned int, void *);
 void handle_add(stack_t **, unsigned int, void *);
 void handle_nop(stack_t **, unsigned int, void *);
+void handle_sub(stack_t **, unsigned int, void *);
+void handle_div(stack_t **, unsigned int, void *);
+void handle_mul(stack_t **, unsigned int, void *);
+void handle_mod(stack_t **, unsigned int, void *);
+void handle_pchar(stack_t **, unsigned int, void *);
+void handle_pstr(stack_t **, unsigned int, void *);
+void handle_rotl(stack_t **, unsigned int, void *);
+void handle_rotr(stack_t **, unsigned int, void *);
 
 /* Handling stack list */
 int swap(stack_t **);
 int pint(stack_t *);
 int add(stack_t **);
 int pop(stack_t **);
+int sub(stack_t **);
+int _div(stack_t **);
+int mul(stack_t **);
+int mod(stack_t **);
+int pchar(stack_t *);
+void pstr(stack_t *);
+void rotl(stack_t **);
+void rotr(stack_t **);
 size_t pall(stack_t *);
-void free_stack(stack_t **);
 stack_t *push(stack_t **, int);
-char *_is_int(char *);
+void free_stack(stack_t **);
 
 /* error handling */
 void _error(char *str);
 char *_is_int(char *str);
+int _isascii(int);
 
 /* Handling file contents */
 void _to_arr(char *, unsigned int, stack_t **);
