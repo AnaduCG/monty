@@ -46,5 +46,6 @@ void run_instruction(stack_t **stack, unsigned int line_number, char **argv)
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, argv[0]);
 	free(argv);
 	free_stack(stack);
+	fclose(file);
 	exit(EXIT_FAILURE);
 }

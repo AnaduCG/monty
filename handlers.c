@@ -17,6 +17,7 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,6 +26,7 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(stack);
 		free(n);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	free(n);
@@ -59,6 +61,7 @@ void handle_pint(stack_t **stack, unsigned int line_number,
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		free_stack(stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -78,6 +81,7 @@ void handle_pop(stack_t **stack, unsigned int line_number,
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		free_stack(stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -97,6 +101,7 @@ void handle_swap(stack_t **stack, unsigned int line_number,
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free_stack(stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 }

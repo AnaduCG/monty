@@ -6,16 +6,17 @@
  * @line_number: file index
  * @arg: argument of instruction
  */
-void handle_mul(stack_t **stack, unsigned int line_number,
-		void *arg __attribute__((unused)))
+void handle_mul(stack_t **stack, unsigned int line_number, void *arg)
 {
 	int ret_val = mul(stack);
 
+	((void)arg);
 	if (ret_val == 0)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n",
-				line_number);
+			line_number);
 		free_stack(stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -26,20 +27,22 @@ void handle_mul(stack_t **stack, unsigned int line_number,
  * @line_number: file index
  * @arg: argument of instruction
  */
-void handle_mod(stack_t **stack, unsigned int line_number,
-		void *arg __attribute__((unused)))
+void handle_mod(stack_t **stack, unsigned int line_number, void *arg)
 {
 	int ret_val = mod(stack);
 
+	((void)arg);
+	((void)arg);
 	if (ret_val != 1)
 	{
 		if (ret_val == 0)
 			fprintf(stderr, "L%d: can't mod, stack too short\n",
-					line_number);
+				line_number);
 		else if (ret_val == -1)
 			fprintf(stderr, "L%d: division by zero\n",
-					line_number);
+				line_number);
 		free_stack(stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -50,21 +53,23 @@ void handle_mod(stack_t **stack, unsigned int line_number,
  * @line_number: file index
  * @arg: argument of instruction
  */
-void handle_pchar(stack_t **stack, unsigned int line_number,
-		void *arg __attribute__((unused)))
+void handle_pchar(stack_t **stack, unsigned int line_number, void *arg)
 {
 	int ret_val = pchar(*stack);
 
+	((void)arg);
+	((void)arg);
 	if (ret_val != 1)
 	{
 		if (ret_val == 0)
 			fprintf(stderr, "L%d: can't pchar, stack empty\n",
-					line_number);
+				line_number);
 		else if (ret_val == -1)
 			fprintf(stderr,
 				"L%d: can't pchar, value out of range\n",
 				line_number);
 		free_stack(stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -75,10 +80,10 @@ void handle_pchar(stack_t **stack, unsigned int line_number,
  * @line_number: file index
  * @arg: argument of instruction
  */
-void handle_pstr(stack_t **stack,
-		__attribute__((unused)) unsigned int line_number,
-		__attribute__((unused)) void *arg)
+void handle_pstr(stack_t **stack, unsigned int line_number, void *arg)
 {
+	((void)line_number);
+	((void)arg);
 	pstr(*stack);
 }
 
@@ -88,9 +93,9 @@ void handle_pstr(stack_t **stack,
  * @line_number: file index
  * @arg: argument of the instruction
  */
-void handle_rotl(stack_t **stack,
-		__attribute__((unused)) unsigned int line_number,
-		__attribute__((unused)) void *arg)
+void handle_rotl(stack_t **stack, unsigned int line_number, void *arg)
 {
+	((void)line_number);
+	((void)arg);
 	rotl(stack);
 }

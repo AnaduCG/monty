@@ -8,5 +8,6 @@
 void _error(char *str)
 {
 	write(2, str, strlen(str));
+	fclose(file);
 	exit(EXIT_FAILURE);
 }

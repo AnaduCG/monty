@@ -48,11 +48,9 @@ int _isascii(int n)
 	return (0);
 }
 
-
 /**
  * pchar - prints the char at the top of the stack
  * @stack: pointer to the stack
- *
  * Return: 1 if successful
  * otherwise 0 if stack is empty or -1 if integer is not ascii
  */
@@ -72,8 +70,7 @@ int pchar(stack_t *stack)
  */
 void pstr(stack_t *stack)
 {
-	while (stack && stack->n != 0
-			&& _isascii(stack->n) == 1)
+	while (stack && stack->n != 0 && _isascii(stack->n) == 1)
 	{
 		printf("%c", stack->n);
 		stack = stack->next;
