@@ -32,11 +32,6 @@ void run_instruction(stack_t **stack, unsigned int line_number, char **argv)
 
 	while (opcodes[i].opcode != NULL)
 	{
-		/*
-		 *printf("opcode->%s\narg->%s\n", argv[0], argv[1]);
-		 *printf("opcode->%s\n", opcodes[i].opcode);
-		 *printf("---\n");
-		 */
 		if (strcmp(opcodes[i].opcode, argv[0]) == 0)
 		{
 			if (argv[1] != NULL)

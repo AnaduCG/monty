@@ -7,8 +7,8 @@
  * @arg: argument of the instruction
  */
 void handle_rotr(stack_t **stack,
-		unsigned int line_number __attribute__((unused)),
-		void *arg __attribute__((unused)))
+		__attribute__((unused)) unsigned int line_number,
+		__attribute__((unused)) void *arg)
 {
 	rotr(stack);
 }

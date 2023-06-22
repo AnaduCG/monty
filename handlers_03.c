@@ -76,8 +76,8 @@ void handle_pchar(stack_t **stack, unsigned int line_number,
  * @arg: argument of instruction
  */
 void handle_pstr(stack_t **stack,
-		unsigned int line_number __attribute__((unused)),
-		void *arg __attribute__((unused)))
+		__attribute__((unused)) unsigned int line_number,
+		__attribute__((unused)) void *arg)
 {
 	pstr(*stack);
 }
@@ -89,8 +89,8 @@ void handle_pstr(stack_t **stack,
  * @arg: argument of the instruction
  */
 void handle_rotl(stack_t **stack,
-		unsigned int line_number __attribute__((unused)),
-		void *arg __attribute__((unused)))
+		__attribute__((unused)) unsigned int line_number,
+		__attribute__((unused)) void *arg)
 {
 	rotl(stack);
 }

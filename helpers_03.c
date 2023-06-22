@@ -2,7 +2,7 @@
 
 /**
  * mul - multiplies the second top element of the stack
- * 	with the top element of the stack
+ * with the top element of the stack
  * @stack: pointer to pointer to stack
  *
  * Return: 1 if successful otherwise 0
@@ -18,7 +18,7 @@ int mul(stack_t **stack)
 
 /**
  * mod - computes the remainder of the division of the second
- * 	top element of the stack by the top of the stack
+ * top element of the stack by the top of the stack
  * @stack: pointer to pointer to stack
  *
  * Return: 1 if successful otherwise 0
@@ -32,14 +32,14 @@ int mod(stack_t **stack)
 		return (-1);
 	(*stack)->next->n %= (*stack)->n;
 	pop(stack);
-	return(1);
+	return (1);
 }
 
 /**
  * _isascii - checks if integer is ascii
  * @n: integer
  *
- * Return: 1 if successful otherwise 0 
+ * Return: 1 if successful otherwise 0
  */
 int _isascii(int n)
 {
@@ -54,7 +54,7 @@ int _isascii(int n)
  * @stack: pointer to the stack
  *
  * Return: 1 if successful
- * otherwise 0 if stack is empty or -1 if 
+ * otherwise 0 if stack is empty or -1 if integer is not ascii
  */
 int pchar(stack_t *stack)
 {
