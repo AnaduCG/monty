@@ -37,17 +37,19 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
  * @line_number: file index
  * @arg: argument of instruction
  */
-void handle_pall(stack_t **stack, unsigned int line_number,
-		void *arg __attribute__((unused)))
+void handle_pall(stack_t **stack, int line_number __attribute__((unused)),
+		 void *arg __attribute__((unused)))
 {
 	int n = pall(*stack);
 
 	if (n == 0)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n",
-			line_number);
+		/**
+		* fprintf(stderr, "L%d: can't pint, stack empty\n",
+		*	line_number);
+		*/
 		free_stack(stack);
-		exit(EXIT_FAILURE);
+		return;
 	}
 }
 
@@ -58,7 +60,7 @@ void handle_pall(stack_t **stack, unsigned int line_number,
  * @arg: argument of instruction
  */
 void handle_pint(stack_t **stack, unsigned int line_number,
-		void *arg __attribute__((unused)))
+		 void *arg __attribute__((unused)))
 {
 	int n = pint(*stack);
 
@@ -94,7 +96,7 @@ void handle_pop(stack_t **stack, unsigned int line_number,
  *@arg: argument of instruction
  */
 void handle_swap(stack_t **stack, unsigned int line_number,
-		void *arg __attribute__((unused)))
+		 void *arg __attribute__((unused)))
 {
 	int n = swap(stack);
 
