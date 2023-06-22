@@ -60,13 +60,14 @@ int pop(stack_t **);
 size_t pall(stack_t *);
 void free_stack(stack_t **);
 stack_t *push(stack_t **, int);
+char *_is_int(char *);
 
 /* error handling */
 void _error(char *str);
 char *_is_int(char *str);
 
 /* Handling file contents */
-void _to_arr(char *str, unsigned int line_number);
+void _to_arr(char *, unsigned int, stack_t **);
 void run_instruction(stack_t **, unsigned int, char **);
 
 #endif /* MONTY_H */

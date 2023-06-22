@@ -18,13 +18,16 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 	if (!n)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
+		free_stack(stack);
+		exit(EXIT_FAILURE);
 	}
 	ret_val = push(stack, atoi(n));
+	free(n);
 	if (!ret_val)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
+		free_stack(stack);
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -43,7 +46,8 @@ void handle_pall(stack_t **stack, unsigned int line_number,
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n",
 			line_number);
-		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
+		free_stack(stack);
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -61,14 +65,15 @@ void handle_pint(stack_t **stack, unsigned int line_number,
 	if (n == 0)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
+		free_stack(stack);
+		exit(EXIT_FAILURE);
 	}
 }
 /**
  *handle_pop - function that handles error for the pop funtion
  *@stack: pointer to pointer to head node of the stack list
  *@line_number: file index
- *@arg: argument of instructio
+ *@arg: argument of instruction
  */
 void handle_pop(stack_t **stack, unsigned int line_number,
 		void *arg __attribute__((unused)))
@@ -78,14 +83,15 @@ void handle_pop(stack_t **stack, unsigned int line_number,
 	if (n == 0)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
+		free_stack(stack);
+		exit(EXIT_FAILURE);
 	}
 }
 /**
- *handle_swap - functio that handles for the swap function
+ *handle_swap - function that handles for the swap function
  *@stack: pointer to pointer to head node of the stack list
  *@line_number: file index
- *@arg: argument of instructio
+ *@arg: argument of instruction
  */
 void handle_swap(stack_t **stack, unsigned int line_number,
 		void *arg __attribute__((unused)))
@@ -95,6 +101,7 @@ void handle_swap(stack_t **stack, unsigned int line_number,
 	if (n == 0)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		exit(EXIT_FAILURE); /* FIXME: free stack before exiting */
+		free_stack(stack);
+		exit(EXIT_FAILURE);
 	}
 }

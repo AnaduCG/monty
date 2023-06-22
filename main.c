@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
 	unsigned int line = 1;
 	char buf[1], str[1024];
 	ssize_t r;
+	stack_t *stack = NULL;
 
-	/* Checking for argument count */
 	if (argc != 2)
 		_error("USAGE: monty file\n");
 	/* opening file */
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 		if (buf[0] == '\n')
 		{
 			str[i] = '\0';
-			_to_arr(str, line);
+			_to_arr(str, line, &stack);
 			line++;
 			i = 0;
 		}
@@ -46,5 +46,6 @@ int main(int argc, char *argv[])
 		_error("Error reading file\n");
 	}
 	close(fd);
+	free_stack(&stack);
 	return (0);
 }
