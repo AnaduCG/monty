@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
 	unsigned int line = 1;
 	char buffer[256];
-	FILE *file;
+	FILE *file = NULL;
 	stack_t *stack = NULL;
 
 	if (argc != 2)
@@ -36,5 +36,6 @@ int main(int argc, char *argv[])
 	}
 
 	fclose(file);
+	free_stack(&stack);
 	return (0);
 }

@@ -11,24 +11,23 @@
  */
 void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 {
-	char *n;
-	stack_t *ret_val;
+	char *n = _is_int(arg);
 
-	n = _is_int(arg);
 	if (!n)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	ret_val = push(stack, atoi(n));
-	free(n);
-	if (!ret_val)
+
+	if (!push(stack, atoi(n)))
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(stack);
+		free(n);
 		exit(EXIT_FAILURE);
-	}
+	} 
+	 free(n);
 }
 
 /**
@@ -37,20 +36,10 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
  * @line_number: file index
  * @arg: argument of instruction
  */
-void handle_pall(stack_t **stack, int line_number __attribute__((unused)),
+void handle_pall(stack_t **stack, unsigned int line_number __attribute__((unused)),
 		 void *arg __attribute__((unused)))
 {
-	int n = pall(*stack);
-
-	if (n == 0)
-	{
-		/**
-		* fprintf(stderr, "L%d: can't pint, stack empty\n",
-		*	line_number);
-		*/
-		free_stack(stack);
-		return;
-	}
+	pall(*stack);
 }
 
 /**

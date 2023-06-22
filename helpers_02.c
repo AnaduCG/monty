@@ -28,16 +28,20 @@ char *_is_int(char *str)
 	if (!str)
 		return (NULL);
 	len = strlen(str);
-	for (j = '0'; j <= '9'; j++)
+	for (i = 0; str[i]; i++)
 	{
-		for (i = 0; str[i]; i++)
+		for (j = '0'; j <= '9'; j++)
 		{
+
 			if (str[i] == j)
 				n++;
 		}
 	}
 	if (n != len)
+	{
+		free(str);
 		return (NULL);
+	}
 	return (str);
 }
 /**
