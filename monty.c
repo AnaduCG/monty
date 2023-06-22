@@ -9,8 +9,7 @@
  */
 void run_instruction(stack_t **stack, unsigned int line_number, char **argv)
 {
-	instruction_t opcodes[] = {
-	    {"push", handle_push},
+	instruction_t opcodes[] = {{"push", handle_push},
 	    {"pall", handle_pall},
 	    {"pint", handle_pint},
 	    {"pop", handle_pop},
@@ -26,6 +25,8 @@ void run_instruction(stack_t **stack, unsigned int line_number, char **argv)
 	    {"pstr", handle_pstr},
 	    {"rotl", handle_rotl},
 	    {"rotr", handle_rotr},
+		{"stack", handle_stack},
+		{"queue", handle_queue},
 	    {NULL, NULL}};
 	int i = 0;
 	char *arg = NULL;
@@ -37,7 +38,6 @@ void run_instruction(stack_t **stack, unsigned int line_number, char **argv)
 			if (argv[1] != NULL)
 				arg = _strdup(argv[1]);
 			free(argv);
-			/* run the instruction */
 			opcodes[i].f(stack, line_number, arg);
 			return;
 		}

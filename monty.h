@@ -8,7 +8,10 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <fcntl.h>
+
+/* Global variables */
 extern FILE *file;
+extern int toggle;
 
 /* Structures */
 /**
@@ -59,6 +62,8 @@ void handle_pchar(stack_t **, unsigned int, void *);
 void handle_pstr(stack_t **, unsigned int, void *);
 void handle_rotl(stack_t **, unsigned int, void *);
 void handle_rotr(stack_t **, unsigned int, void *);
+void handle_stack(stack_t **, unsigned int, void *);
+void handle_queue(stack_t **, unsigned int, void *);
 
 /* Handling stack list */
 int swap(stack_t **);
@@ -75,6 +80,7 @@ void rotl(stack_t **);
 void rotr(stack_t **);
 size_t pall(stack_t *);
 stack_t *push(stack_t **, int);
+stack_t *enqueue(stack_t **, int);
 void free_stack(stack_t **);
 
 /* error handling */
