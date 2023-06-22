@@ -26,7 +26,7 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 		free_stack(stack);
 		free(n);
 		exit(EXIT_FAILURE);
-	} 
+	}
 	 free(n);
 }
 
@@ -36,7 +36,7 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
  * @line_number: file index
  * @arg: argument of instruction
  */
-void handle_pall(stack_t **stack, unsigned int line_number __attribute__((unused)),
+void handle_pall(stack_t **stack, int line_number __attribute__((unused)),
 		 void *arg __attribute__((unused)))
 {
 	pall(*stack);

@@ -45,7 +45,7 @@ typedef struct instruction_s
 
 /* Handling monty commands*/
 void handle_push(stack_t **, unsigned int, void *);
-void handle_pall(stack_t **, unsigned int, void *);
+void handle_pall(stack_t **, int, void *);
 void handle_pint(stack_t **, unsigned int, void *);
 void handle_swap(stack_t **, unsigned int, void *);
 void handle_pop(stack_t **, unsigned int, void *);
