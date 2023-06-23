@@ -90,6 +90,7 @@ int _isascii(int);
 
 /* Handling file contents */
 void _to_arr(char *, unsigned int, stack_t **);
+void comment(char *str, unsigned int line_number, stack_t **stack);
 void run_instruction(stack_t **, unsigned int, char **);
 char *_strdup(const char *str);
 

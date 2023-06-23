@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 			fclose(file);
 			exit(EXIT_FAILURE);
 		}
-		_to_arr(buffer, line, &stack);
+		comment(buffer, line, &stack);
 		line++;
 	}
 

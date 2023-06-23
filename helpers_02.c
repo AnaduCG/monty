@@ -23,13 +23,18 @@ int add(stack_t **stack)
  */
 char *_is_int(char *str)
 {
-	int i, n = 0, len = 0;
+	int i = 0, n = 0, len = 0;
 	char j;
 
 	if (!str)
 		return (NULL);
+	if (str[0] == '-')
+	{
+		i = 1;
+		n = 1;
+	}
 	len = strlen(str);
-	for (i = 0; str[i]; i++)
+	for (; str[i]; i++)
 	{
 		for (j = '0'; j <= '9'; j++)
 		{
