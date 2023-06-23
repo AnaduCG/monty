@@ -34,7 +34,7 @@ void _to_arr(char *str, unsigned int line_number, stack_t **stack)
 
 	if (vals == NULL)
 		_error("Error: malloc failed\n");
-	if (!token)
+	if (!token || str[0] == '\0')
 	{
 		free(vals);
 		return;

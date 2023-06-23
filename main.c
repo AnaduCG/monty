@@ -25,7 +25,6 @@ int main(int argc, char *argv[])
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	/* Read lines from the file */
