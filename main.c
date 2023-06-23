@@ -16,7 +16,10 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 
 	if (argc != 2)
-		_error("USAGE: monty file\n");
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 	/* opening file */
 	file = fopen(argv[1], "r");
 	if (file == NULL)
