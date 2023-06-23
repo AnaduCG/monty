@@ -30,7 +30,6 @@ void handle_push(stack_t **stack, unsigned int line_number, void *arg)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(stack);
-		free(n);
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
