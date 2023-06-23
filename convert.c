@@ -1,4 +1,24 @@
 #include "monty.h"
+/**
+ * comment - function that converts a string to array
+ * @line_number: argument ofr tracking line number in file
+ * @str: string to be converted
+ * @stack: pointer to pointer to stack
+ */
+void comment(char *str, unsigned int line_number, stack_t **stack)
+{
+	int i;
+
+	for (i = 0; str[i]; i++)
+	{
+		if (str[i] == '#')
+		{
+			str[i] = '\0';
+			break;
+		}
+	}
+	_to_arr(str, line_number, stack);
+}
 
 /**
  * _to_arr - function that converts a string to array
